@@ -1,7 +1,7 @@
 class ProjectsController < ApplicationController
 
   def index
-    @projects = Project.order('projects.created_at DESC')
+    @projects = Project.all
 
     respond_to do |format|
       format.js
@@ -11,7 +11,7 @@ class ProjectsController < ApplicationController
 
   def show
     @project = Project.find(params[:id])
-    @comment = Comment.new(:project_id => @project.id)
+    #@comment = Comment.new(:project_id => @project.id)
   end
 
   def new
@@ -19,7 +19,7 @@ class ProjectsController < ApplicationController
   end
 
   def create
-    @project = Project.new(proejct_params)
+    @project = Project.new(project_params)
     
     if @project.save
       redirect_to projects_url
