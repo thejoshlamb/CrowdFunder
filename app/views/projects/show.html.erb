@@ -1,7 +1,9 @@
 <h1><%= @project.name %></h1>
-<p><%= @project.description %></p>
-<p>$<%= @project.goal %></p>
-<p><%= @project.deadline %></p>
+<p>Project Description: <%= @project.description %></p>
+<p>Project Target: $<%= @project.goal %></p>
+<p>Project Current Pledges: $<%= @project.pledge_total %></p>
+<p>Project Deadline: <%= @project.deadline %></p>
+<p>Project Time Remaining: <%= distance_of_time_in_words_to_now(@project.deadline) %></p>
 <br>
 <%= link_to "Edit this Project", edit_project_url %>
 <br>
