@@ -6,6 +6,7 @@ class PledgesController < ApplicationController
 	before_filter :load_project
 
 	def new
+		@pledge = Pledge.new
 	end
 
 	def show
@@ -13,10 +14,11 @@ class PledgesController < ApplicationController
 	end
 
 	def create
-	  @pledge = @product.reviews.build(review_params)
+		#@project = Project.find(params[:project_id])
+	  @pledge = @project.pledges.build(pledge_params)
   	@pledge.user_id = current_user.id
   	if @pledge.save
-  		redirect_to project_path(params[:id])
+  		redirect_to project_path(params[:project_id])
 		end
 	end
 

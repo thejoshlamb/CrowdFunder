@@ -11,7 +11,7 @@
 
 <% if current_user %>
   Make a comment:
-  <%= render :partial => "comment_form", locals: { project: @project, comment: @comment } %>
+  <%= render "comment_form" %>
 <% else %>
   <p>Please sign in to make a comment.</p>
 <% end %>
@@ -19,7 +19,19 @@
 <p>Comments:</p>
 
 <div class="review-list">
-  <% @project.comments.reverse.each do |f| %>
-    <%= render :partial => "comment_single", locals: { comment: @comment } %>
+  <% @project.comments.reverse.each do |comment| %>
+    <% if comment.id.present? %>
+
+  <div class="comment">
+    <p><%= comment.content %>
+
+    <% if comment.user === current_user %>
+      <em> | <%= link_to "Edit", edit_project_comment_path(@project.id,comment.id) %> | <%= link_to "Trash", project_comment_path(@project.id,comment.id), :method => :delete %></em><br>
+      <% end %>
+
+      <em> by <%= comment.user.username %></em>
+      Added on: <%= comment.created_at %>
+  </p></div>
+<% end %>
   <% end %>
 </div>

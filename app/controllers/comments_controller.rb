@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
 
-	#before_filter :require_login
+	# before_filter :require_login
 	# before_filter :load_project
 
 	def index
@@ -32,9 +32,9 @@ class CommentsController < ApplicationController
 	end
 
 	def destroy
-	  @comment = comment.find(params[:id])
+	  @comment = Comment.find(params[:id])
 	  @comment.destroy
-	  redirect_to comments_url
+	  redirect_back_or_to project_path(params[:project_id])
 	end
 
 	private

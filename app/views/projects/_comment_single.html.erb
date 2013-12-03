@@ -4,7 +4,7 @@
     <p><%= comment.content %>
 
     <% if comment.user === current_user %>
-      <em> | <%= link_to "Edit", edit_project_review_path(@project.id,comment.id) %> | <% link_to "Trash", project_review_path(@project.id,comment.id) :method => :delete %></em><br>
+      <em> | <%= link_to "Edit", edit_project_review_path(@project.id,comment.id) %> | <% link_to "Trash", project_review_path(@project.id,comment.id), :method => :delete %></em><br>
       <% end %>
 
       <em> by <%= comment.user.username %></em>
