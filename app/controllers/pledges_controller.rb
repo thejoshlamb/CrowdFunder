@@ -1,5 +1,7 @@
 class PledgesController < ApplicationController
 
+	before_filter :require_login
+
 	def index
 	  @pledges = Pledge.all
 	end

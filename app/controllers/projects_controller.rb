@@ -1,5 +1,8 @@
 class ProjectsController < ApplicationController
 
+  #will reject anonymous users from creating a new project with no explanation, should be elaborated
+  before_filter :require_login, :only => [:new, :create, :edit, :destroy] 
+
   def index
     @projects = Project.all
 

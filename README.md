@@ -7,13 +7,13 @@ Features
 
 ###Active
 
-+Users can create projects
-+Projects have a funding goal and a deadline (funding goal needs better formattion, currently integer only)
++Users can create projects  
++Projects have a funding goal and a deadline (funding goal needs better formattion, currently integer only)  
 
 ###MVP TODO
 
 +3 user types: Owners, Backers, Admins  
-+Projects have a funding goal and time limit, and image/description  
++Projects have an image  
 +Backers can pledge money to a project  
 +Project will display a live counter of total amount pledged and time remaining  
 +index of all current projects  

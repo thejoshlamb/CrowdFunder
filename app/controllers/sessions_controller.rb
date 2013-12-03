@@ -3,7 +3,7 @@ class SessionsController < ApplicationController
 	end
 
 	def create
-		if @user = login(params[:email],params[:name],params[:password])
+		if @user = login(params[:username],params[:password])
 			redirect_back_or_to projects_path
 		else
 			render :new
