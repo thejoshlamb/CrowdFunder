@@ -1,6 +1,9 @@
-#Bitmaker Labs Assignment 18
+CrowdFunder
+-----------
+A lovingly crafted Kickstarter clone.
 
-##Features
+Features
+========
 
 ###Active
 
@@ -21,7 +24,8 @@
 +breakpoints for donations  
 +limits at various breakpoints  
 
-##Structure
+Structure
+=========
 
 Users create and own Projects
 Users create and own pledges for projects
