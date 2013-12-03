@@ -1,36 +1,31 @@
 class PledgesController < ApplicationController
 
-	before_filter :require_login
+	# this before login will be necessary eventually
+	# before_filter :require_login
 
-	def index
-	  @pledges = Pledge.all
+	before_filter :load_project
+
+	def new
 	end
 
 	def show
 	  @pledge = Pledge.find(params[:id])
 	end
 
-	def new
-	  @pledge = Pledge.new
-	end
-
 	def create
-	  @pledge = Pledge.new(pledge_params)
-	  
-	  if @pledge.save
-	    redirect_to pledges_url
-	  else
-	    render :new
-	  end
-	end
-
-	def destroy
-	  @pledge = pledge.find(params[:id])
-	  @pledge.destroy
-	  redirect_to pledges_url
+	  @pledge = @product.reviews.build(review_params)
+  	@pledge.user_id = current_user.id
+  	if @pledge.save
+  		redirect_to project_path(params[:id])
+		end
 	end
 
 	private
+
+	def load_project
+  	@project = Project.find(params[:project_id])
+ 	end
+
 	def pledge_params
 	  params.require(:pledge).permit(:amount, :user_id)
 	end

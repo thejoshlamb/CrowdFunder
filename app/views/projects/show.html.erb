@@ -4,4 +4,7 @@
 <p><%= @project.deadline %></p>
 <br>
 <%= link_to "Edit this Project", edit_project_url %>
+<br>
+<%= link_to "Pledge to this Project!", new_project_pledge_path(params[:id]) %>
+<br>
 <%= link_to "Back", root_path %>
