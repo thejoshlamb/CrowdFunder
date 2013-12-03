@@ -8,6 +8,14 @@
 </head>
 <body>
 
+  <div id="debug">
+    debug</br>
+    current_user.id: <span><%= current_user.id if current_user %></span></br>
+    @project.id: <span><%= @project.id unless @project == nil %></span></br>
+    @pledge.id: <span><%= @pledge.id unless @pledge == nil %></span></br>
+    @project.pledge.all: <span><%= @project.pledge.all unless @project == nil%></span></br>
+  </div>
+
   <h1>CrowdBlunder</h1> 
   <div class = "user_panel">
     <% if current_user %> 

@@ -14,3 +14,18 @@
  body {
   font-family: Helvetica;
  }
+
+ #debug {
+ 	position: fixed;
+ 	bottom: 20px;
+ 	right: 20px;
+ 	background-color: LightGray;
+ 	font-size: 0.9em;
+ 	border-radius: 15px;
+ 	min-width:200px;
+ 	padding:10px;
+ }
+
+ #debug span {
+ 	color: red;
+ }
