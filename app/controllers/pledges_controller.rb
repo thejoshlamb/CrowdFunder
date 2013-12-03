@@ -1,17 +1,11 @@
 class PledgesController < ApplicationController
 
 	def index
-	  @projects = Pledge.all
-
-	  respond_to do |format|
-	    format.js
-	    format.html
-	  end
+	  @pledges = Pledge.all
 	end
 
 	def show
 	  @pledge = Pledge.find(params[:id])
-	  #@comment = Comment.new(:pledge_id => @pledge.id)
 	end
 
 	def new
@@ -25,20 +19,6 @@ class PledgesController < ApplicationController
 	    redirect_to pledges_url
 	  else
 	    render :new
-	  end
-	end
-
-	def edit
-	  @pledge = Pledge.find(params[:id])
-	end
-
-	def update
-	  @pledge = Pledge.find(params[:id])
-
-	  if @pledge.update_attributes(pledge_params)
-	    redirect_to pledges_url
-	  else
-	    render :edit
 	  end
 	end
 
