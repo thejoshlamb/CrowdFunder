@@ -8,7 +8,7 @@ Features
 ###Active
 
 +Users can create projects  
-+Projects have a funding goal and a deadline (funding goal needs better formattion, currently integer only)  
++Projects have a funding goal and a deadline (funding goal needs better formatting, currently integer only)  
 
 ###MVP TODO
 
