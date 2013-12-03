@@ -15,7 +15,7 @@ class ProjectsController < ApplicationController
   def show
     @project = Project.find(params[:id])
     #@pledges = @project.pledge.build
-    #@comment = Comment.new(:project_id => @project.id)
+    @comment = Comment.new(:project_id => @project.id)
   end
 
   def new

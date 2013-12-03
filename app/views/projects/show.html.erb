@@ -8,10 +8,18 @@
 <%= link_to "Pledge to this Project!", new_project_pledge_path(params[:id]) %>
 <br>
 <p><%= link_to "Back", root_path %></p>
+
+<% if current_user %>
+  Make a comment:
+  <%= render :partial => "comment_form", locals: { project: @project, comment: @comment } %>
+<% else %>
+  <p>Please sign in to make a comment.</p>
+<% end %>
+
 <p>Comments:</p>
 
 <div class="review-list">
   <% @project.comments.reverse.each do |f| %>
-    <%= render :partial => "comment_single", locals: { comment: comment } %>
+    <%= render :partial => "comment_single", locals: { comment: @comment } %>
   <% end %>
 </div>

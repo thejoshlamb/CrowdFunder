@@ -1,0 +1,6 @@
+<%= form_for [@project, @comment], :remote => true, format: :html do |f| %>
+
+  <div class="field"><%= f.text_area :content %></div>
+  <div class="actions"><%= f.submit %></div>
+
+<% end %>
