@@ -16,7 +16,7 @@
     @project.pledge.all: <span><%= @project.pledge.all unless @project == nil%></span></br>
   </div>
 
-  <h1>CrowdBlunder</h1> 
+  <h1><%= link_to "CrowdBlunder", root_path %></h1> 
   <div class = "user_panel">
     <% if current_user %> 
       <%= link_to current_user.username, user_path(current_user.id) %> | <%= link_to "Logout", logout_path %>

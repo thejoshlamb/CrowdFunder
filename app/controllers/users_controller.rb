@@ -1,11 +1,24 @@
 class UsersController < ApplicationController
 
   def show
-    @user = user.find(params[:id])
+    @user = User.find(params[:id])
+  end
+
+  def edit
+    @user = current_user
   end
 
   def new
     @user = User.new
+  end
+
+  def update
+    @user = User.find(params[:id])
+    if @user.update_attributes(user_params)
+      redirect_to user_path(current_user.id), :notice => "#{@user.username} updated."
+    else
+      render :edit
+    end
   end
 
   def create
