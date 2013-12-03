@@ -7,4 +7,11 @@
 <br>
 <%= link_to "Pledge to this Project!", new_project_pledge_path(params[:id]) %>
 <br>
-<%= link_to "Back", root_path %>
+<p><%= link_to "Back", root_path %></p>
+<p>Comments:</p>
+
+<div class="review-list">
+  <% @project.comments.reverse.each do |f| %>
+    <%= render :partial => "comment_single", locals: { comment: comment } %>
+  <% end %>
+</div>

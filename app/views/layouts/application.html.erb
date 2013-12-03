@@ -13,7 +13,7 @@
     current_user.id: <span><%= current_user.id if current_user %></span></br>
     @project.id: <span><%= @project.id unless @project == nil %></span></br>
     @pledge.id: <span><%= @pledge.id unless @pledge == nil %></span></br>
-    @project.pledge.all: <span><%= @project.pledge.all unless @project == nil%></span></br>
+    @project.pledges.all: <span><%= @project.pledges.all unless @project == nil%></span></br>
   </div>
 
   <h1><%= link_to "CrowdBlunder", root_path %></h1> 
