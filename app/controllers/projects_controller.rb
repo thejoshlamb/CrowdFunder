@@ -20,14 +20,13 @@ class ProjectsController < ApplicationController
 
   def new
     @project = Project.new
-    @tier = @project.tiers.build
   end
 
   def create
     @project = Project.new(project_params)
     @project.user_id = current_user.id
     if @project.save
-      redirect_to projects_url
+      redirect_to new_project_tier_path(@project.id)
     else
       render :new
     end

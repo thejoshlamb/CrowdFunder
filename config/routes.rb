@@ -11,6 +11,7 @@ CrowdFunder::Application.routes.draw do
   resources :projects do
     resources :comments
     resources :pledges
+    resources :tiers
   end
 
 

@@ -1,0 +1,32 @@
+<h1>Part 2 - Tiers</h1>
+
+<% if @project.tiers.any? %>
+  <ol>
+  <% @project.tiers.reverse.each do |tier| %>
+    <li><%= tier.name %></li>
+  <% end  %>
+  </ol>
+<% end  %>
+
+ <%= form_for [@project, @tier] do |f| %>
+
+    <div class ="field">
+      <%= f.label "Tier Name" %>
+      <%= f.text_field :name %>
+    </div>
+    
+    <div class ="field">
+      <%= f.label "Tier Amount ($)" %>
+      <%= f.number_field :amount %>
+    </div>
+   
+    <div class ="field">
+      <%= f.label "Reward" %>
+      <%= f.text_field :description %>
+    </div>
+
+    <div class ="action">
+      <%= f.submit "ok!" %>
+    </div>
+
+  <% end %>

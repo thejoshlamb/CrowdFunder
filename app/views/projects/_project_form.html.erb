@@ -31,44 +31,8 @@
     <%= f.date_field :deadline %>
   </div>
 
-  <%= f.fields_for :tiers do |tiers_f| %>
-
-    <div class ="field">
-      <%= tiers_f.label "Tier Name" %>
-      <%= tiers_f.text_field :name %>
-    
-      <%= tiers_f.label "Tier Amount ($)" %>
-      <%= tiers_f.number_field :name %>
-   
-      <%= tiers_f.label "Reward" %>
-      <%= tiers_f.text_field :description %>
-    </div>
-
-    <div class ="field">
-      <%= tiers_f.label "Tier Name" %>
-      <%= tiers_f.text_field :name %>
-    
-      <%= tiers_f.label "Tier Amount ($)" %>
-      <%= tiers_f.number_field :name %>
-   
-      <%= tiers_f.label "Reward" %>
-      <%= tiers_f.text_field :description %>
-    </div>
-    
-    <div class ="field">
-      <%= tiers_f.label "Tier Name" %>
-      <%= tiers_f.text_field :name %>
-    
-      <%= tiers_f.label "Tier Amount ($)" %>
-      <%= tiers_f.number_field :name %>
-   
-      <%= tiers_f.label "Reward" %>
-      <%= tiers_f.text_field :description %>
-    </div>
-    <% end %>
-
- <div class="action">
-    <p><%= f.submit %></p>
+  <div class="action">
+    <p><%= f.submit "Proceed to Tiers" %></p>
   </div>
 
 <% end %>
