@@ -3,7 +3,7 @@ class Project < ActiveRecord::Base
 	has_many :pledges
 	has_many :comments
 	has_many :tiers
-	accept_nested_attributes_for :tiers
+	accepts_nested_attributes_for :tiers
 
   def pledge_total
     self.pledges.sum(:amount)
