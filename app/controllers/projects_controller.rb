@@ -24,7 +24,7 @@ class ProjectsController < ApplicationController
 
   def create
     @project = Project.new(project_params)
-    
+    @project.user_id = current_user.id
     if @project.save
       redirect_to projects_url
     else
@@ -38,7 +38,7 @@ class ProjectsController < ApplicationController
 
   def update
     @project = Project.find(params[:id])
-
+    @project.user_id = current_user.id
     if @project.update_attributes(project_params)
       redirect_to projects_url
     else

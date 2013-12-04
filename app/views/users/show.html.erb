@@ -4,12 +4,19 @@
 
 <p>Here are the projects that you have pledged:</p>
 
-<% @user.projects.pledges.each do |pledge| %>
+<% @user.pledges.each do |pledge| %>
   
-  <% x = Project.find(pledge.project_id).name %>
-  <%=  pledge.project_id %>
-  <%= link_to x.name, project_path(pledge.project_id) %>
+  <% x = Project.find(pledge.project_id) %>
+  <%= link_to x.name, project_path(pledge.project_id) %> | You pledged $<%= pledge.amount %><br>
 
 <% end %>
 
+<p>Your total pledges are: $<%= @user.pledge_total %></p>
+
 <p>Here are the projects that you own:</p>
+
+<% @user.projects.each do |project| %>
+  
+  <%= link_to project.name, project_path(project.id) %> | Total Pledges $<%= project.pledge_total %><br>
+
+<% end %>

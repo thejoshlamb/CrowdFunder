@@ -5,9 +5,15 @@
 <p>Project Deadline: <%= @project.deadline %></p>
 <p>Project Time Remaining: <%= distance_of_time_in_words_to_now(@project.deadline) %></p>
 <br>
-<%= link_to "Edit this Project", edit_project_url %>
-<br>
-<%= link_to "Pledge to this Project!", new_project_pledge_path(params[:id]) %>
+<% if @project.user === current_user %>
+  <%= link_to "Edit this Project", edit_project_url %><br>
+<% end %>
+
+<% if current_user.pledges.any? { |pledge| pledge.project_id == @project.id } %>
+  <p>You are currently pledged at the X<%=  %> level!</p>
+<% else %>
+  <%= link_to "Pledge to this Project!", new_project_pledge_path(params[:id]) %>
+<% end %>
 <br>
 <p><%= link_to "Back", root_path %></p>
 
