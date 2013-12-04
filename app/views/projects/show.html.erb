@@ -38,7 +38,7 @@
       <em> | <%= link_to "Edit", edit_project_comment_path(@project.id,comment.id) %> | <%= link_to "Trash", project_comment_path(@project.id,comment.id), :method => :delete %></em><br>
       <% end %>
 
-      <em> by <%= comment.user.username %></em>
+      <em> by <%= comment.user.username unless comment.user == nil %></em>
       Added on: <%= comment.created_at %>
   </p></div>
 <% end %>

@@ -31,6 +31,22 @@ class CommentsController < ApplicationController
 	  end
 	end
 
+	def edit
+		@project = Project.find(params[:project_id])
+		@comment = Comment.find(params[:id])
+	end
+
+	def update
+		@project = Project.find(params[:project_id])
+		@comment = Comment.find(params[:id])
+		@comment.user_id = current_user.id
+		if @comment.update_attributes(comment_params)
+		redirect_to project_path(params[:project_id])
+		else
+			render :edit
+		end
+	end
+
 	def destroy
 	  @comment = Comment.find(params[:id])
 	  @comment.destroy

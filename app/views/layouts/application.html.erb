@@ -10,6 +10,7 @@
 
   <div id="debug">
     debug</br>
+    id: <span> <%= params[:id] unless params[:id] == nil %></span></br>
     current_user.id: <span><%= current_user.id if current_user %></span></br>
     @project.id: <span><%= @project.id unless @project == nil %></span></br>
     @pledge.id: <span><%= @pledge.id unless @pledge == nil %></span></br>
