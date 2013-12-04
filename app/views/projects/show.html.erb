@@ -2,6 +2,7 @@
 <p>Project Description: <%= @project.description %></p>
 <p>Project Target: $<%= @project.goal %></p>
 <p>Project Current Pledges: $<%= @project.pledge_total %></p>
+<p>Project Pledge Progress: <%= @project.pledge_percent %>%</p>
 <p>Project Deadline: <%= @project.deadline %></p>
 <p>Project Time Remaining: <%= distance_of_time_in_words_to_now(@project.deadline) %></p>
 <br>
