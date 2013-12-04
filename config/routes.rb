@@ -1,4 +1,5 @@
 CrowdFunder::Application.routes.draw do
+
   root 'projects#index'
 
   get "logout" => "sessions#destroy", :as => "logout"
@@ -7,6 +8,7 @@ CrowdFunder::Application.routes.draw do
 
   resources :users
   resources :sessions, :only => [:new,:create,:destroy]
+  resources :messages, :only => [:new,:create]
 
   resources :projects do
     resources :comments

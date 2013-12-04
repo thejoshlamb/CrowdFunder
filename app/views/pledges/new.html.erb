@@ -4,8 +4,10 @@
 
   <div class="field">
     <%= f.label "How much do you pledge?" %>
-    <%= f.number_field :amount %>
+    <%= f.number_field :amount, value: params[:amount] %>
   </div>
   <div class="actions"><%= f.submit %></div>
-
+	
 <% end %>
+
+<%= link_to "Back", project_path(params[:project_id]) %>

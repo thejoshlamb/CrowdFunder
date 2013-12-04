@@ -2,7 +2,7 @@
 
 <% if @project.tiers.any? %>
   <ol>
-  <% @project.tiers.reverse.each do |tier| %>
+  <% @project.tiers.sort.each do |tier| %>
     <li><%= tier.name %></li>
   <% end  %>
   </ol>
@@ -30,3 +30,5 @@
     </div>
 
   <% end %>
+
+<%= link_to "Done", project_path(params[:project_id]) %>

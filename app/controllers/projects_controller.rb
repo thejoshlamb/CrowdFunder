@@ -14,7 +14,6 @@ class ProjectsController < ApplicationController
 
   def show
     @project = Project.find(params[:id])
-    #@pledges = @project.pledge.build
     @comment = Comment.new
   end
 
@@ -40,7 +39,7 @@ class ProjectsController < ApplicationController
     @project = Project.find(params[:id])
     @project.user_id = current_user.id
     if @project.update_attributes(project_params)
-      redirect_to projects_url
+      redirect_to new_project_tier_path(@project.id)
     else
       render :edit
     end
@@ -54,7 +53,7 @@ class ProjectsController < ApplicationController
 
   private
   def project_params
-    params.require(:project).permit(:name,:description,:deadline,:goal, tiers_attributes: [:id, :name, :amount, :description])
+    params.require(:project).permit(:name,:description,:deadline,:goal)
   end
 
 end

@@ -1,0 +1,15 @@
+<h1>Messages#new</h1>
+<p>Find me in app/views/messages/new.html.erb</p>
+
+<h1>send a nice message to <%= User.find(params[:backer_id]).username %></h1>
+
+<%= form_tag("/messages", method: "post") do %>
+<%= label_tag :message %>
+<%= text_area_tag :message %>
+<div>
+<%= submit_tag "OK!" %>
+</div>
+<% end  %>
+
+
+

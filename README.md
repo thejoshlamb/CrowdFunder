@@ -10,6 +10,7 @@ Features
 +Users can create projects  
 +Projects have a funding goal and a deadline (funding goal needs better formatting, currently integer only)  
 +Backers can pledge money to a project  
++Projects have various donation tiers which backers can choose from  
 
 ###MVP TODO
 
@@ -21,7 +22,7 @@ Features
 
 +categories for projects  
 +breakpoints for donations  
-+limits at various breakpoints  
+
 
 Structure
 =========
