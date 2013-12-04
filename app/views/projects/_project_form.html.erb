@@ -36,4 +36,21 @@
     <%= f.submit %>
   </div>
 
+  <%= f.fields_for :tiers do |tiers_f| %>
+
+    <div class ="field">
+     <%= tiers_f.label "New Tier Name" %>
+     <%= tiers_f.text_field :name %>
+    </div>
+
+    <div class ="field">
+     <%= tiers_f.label "New Tier Amount" %>
+     <%= tiers_f.number_field :name %>
+    </div>
+
+    <div class ="field">
+     <%= tiers_f.label "New Tier Description" %>
+     <%= tiers_f.text_area :description %>
+    </div>
+
 <% end %>
