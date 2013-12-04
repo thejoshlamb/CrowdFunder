@@ -17,7 +17,7 @@
   </div>
 
   <div class="field">
-    <%= f.label "Project Description" %>
+    <%= f.label "Project Description" %><br>
     <%= f.text_area :description %>
   </div>
 
@@ -31,33 +31,44 @@
     <%= f.date_field :deadline %>
   </div>
 
-  <div class="action">
-    <%= f.label "Submit Project" %>
-    <%= f.submit %>
-  </div>
-
   <%= f.fields_for :tiers do |tiers_f| %>
 
     <div class ="field">
-      <%= tiers_f.label "New Tier Name" %>
+      <%= tiers_f.label "Tier Name" %>
       <%= tiers_f.text_field :name %>
-    </div>
-
-    <div class ="field">
-      <%= tiers_f.label "New Tier Amount" %>
+    
+      <%= tiers_f.label "Tier Amount ($)" %>
       <%= tiers_f.number_field :name %>
+   
+      <%= tiers_f.label "Reward" %>
+      <%= tiers_f.text_field :description %>
     </div>
 
     <div class ="field">
-      <%= tiers_f.label "New Tier Description" %>
-      <%= tiers_f.text_area :description %>
+      <%= tiers_f.label "Tier Name" %>
+      <%= tiers_f.text_field :name %>
+    
+      <%= tiers_f.label "Tier Amount ($)" %>
+      <%= tiers_f.number_field :name %>
+   
+      <%= tiers_f.label "Reward" %>
+      <%= tiers_f.text_field :description %>
     </div>
-
-    <div class="action">
-      <%= tiers_f.label "Submit Project" %>
-      <%= tiers_f.submit %>
+    
+    <div class ="field">
+      <%= tiers_f.label "Tier Name" %>
+      <%= tiers_f.text_field :name %>
+    
+      <%= tiers_f.label "Tier Amount ($)" %>
+      <%= tiers_f.number_field :name %>
+   
+      <%= tiers_f.label "Reward" %>
+      <%= tiers_f.text_field :description %>
     </div>
-
     <% end %>
+
+ <div class="action">
+    <p><%= f.submit %></p>
+  </div>
 
 <% end %>

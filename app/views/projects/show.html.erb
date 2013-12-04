@@ -8,6 +8,15 @@
 <br>
 <% if @project.user === current_user %>
   <%= link_to "Edit this Project", edit_project_url %><br>
+
+  <p>Users that have pledged to your project:</p>
+
+  <% @project.pledges.each do |f| %>
+    <%= User.find(f.user_id).username %> | <%= mail_to User.find(f.user_id).email %> | $<%= f.amount %> 
+  <% end %>
+
+  <% %>
+
 <% end %>
 
 <% if current_user.pledges.any? { |pledge| pledge.project_id == @project.id } %>
