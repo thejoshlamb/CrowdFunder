@@ -1,11 +1,11 @@
-<h1>Messages#new</h1>
-<p>Find me in app/views/messages/new.html.erb</p>
+<h1></h1>
 
 <h1>send a nice message to <%= User.find(params[:backer_id]).username %></h1>
 
-<%= form_tag("/messages", method: "post") do %>
+<%= form_tag( messages_path , method: "post") do %>
 <%= label_tag :message %>
 <%= text_area_tag :message %>
+<%= hidden_field_tag(:backer_id, params[:backer_id]) %>
 <div>
 <%= submit_tag "OK!" %>
 </div>

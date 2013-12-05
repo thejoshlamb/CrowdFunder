@@ -3,10 +3,9 @@ class BackerMailer < ActionMailer::Base
 	default from: "joshlamb@gmail.com"
   
 	def single_backer_email(owner,backer,message)
-		@user = user
+		@owner = owner
 		@backer = backer
 		@message = message
-		mail(to: @user, from: @backer, subject: 'Thanks for your support!')
+		mail(to: @backer.email, from: @owner.email, subject: 'Thanks for your support!')
 	end
-
-	def
+end
