@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
+    <title>Bring Back The Band</title>
 
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "vendor/modernizr" %>
@@ -66,9 +66,38 @@
       </nav>
     </div>
 
+    </br>
+    </br>
+
+    <% if flash[:alert] %>
+      <div class = "row">
+        <div class = "large-12 columns">
+          <div data-alert class="alert-box">
+            <%= flash[:alert] %>
+            <a href="#" class="close">&times;</a>
+          </div>
+        </div>
+      </div>
+    <% end %>
+
+    <% if flash[:notice] %>
+      <div class = "row">
+        <div class = "large-12 columns">
+          <div data-alert class="alert-box">
+            <%= flash[:notice] %>
+            <a href="#" class="close">&times;</a>
+          </div>
+        </div>
+      </div>
+    <% end %>
+
+
+          
+
+    </br>
+    </br>
+
     <div class = "row">
-    </br>
-    </br>
       <%= yield %>
       <%= javascript_include_tag "application" %>
     </div>
