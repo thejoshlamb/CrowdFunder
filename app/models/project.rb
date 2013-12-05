@@ -12,4 +12,6 @@ class Project < ActiveRecord::Base
     pledge_total * 100 / self.goal
   end
 
+  mount_uploader :picture, PictureUploader
+
 end

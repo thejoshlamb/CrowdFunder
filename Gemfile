@@ -32,6 +32,8 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+#upload images and shit
+gem 'carrierwave'
 
 #user authentication
 gem 'sorcery'
