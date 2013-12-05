@@ -19,6 +19,7 @@ class ProjectsController < ApplicationController
 
   def new
     @project = Project.new
+    @uploader = PictureUploader.new
   end
 
   def create
@@ -53,7 +54,7 @@ class ProjectsController < ApplicationController
 
   private
   def project_params
-    params.require(:project).permit(:name,:description,:deadline,:goal)
+    params.require(:project).permit(:name,:description,:deadline,:goal,:picture)
   end
 
 end
