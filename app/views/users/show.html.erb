@@ -1,22 +1,40 @@
-<h1><%= @user.username %></h1>
+<!-- left column -->
 
-<p><%= link_to "Edit Profile", edit_user_path %></p>
+<div class = "large-3 columns">
+	
+	<%= gravatar_for @user %>
 
-<p>Here are the projects that you have pledged:</p>
+</div>
 
-<% @user.pledges.each do |pledge| %>
-  
-  <% x = Project.find(pledge.project_id) %>
-  <%= link_to x.name, project_path(pledge.project_id) %> | You pledged $<%= pledge.amount %><br>
+<!-- right column -->
 
-<% end %>
+<div class = "large-9 columns">
+	<h1><%= @user.username %></h1>
+	<h6><%= @user.email %></h6>
 
-<p>Your total pledges are: $<%= @user.pledge_total %></p>
+	
 
-<p>Here are the projects that you own:</p>
+	<p>Here are the projects that you have pledged:</p>
 
-<% @user.projects.each do |project| %>
-  
-  <%= link_to project.name, project_path(project.id) %> | Total Pledges $<%= project.pledge_total %><br>
+	<% @user.pledges.each do |pledge| %>
+	  
+	  <% x = Project.find(pledge.project_id) %>
+	  <%= link_to x.name, project_path(pledge.project_id) %> | You pledged $<%= pledge.amount %><br>
 
-<% end %>
+	<% end %>
+
+	<p>Your total pledges are: $<%= @user.pledge_total %></p>
+
+	<p>Here are the projects that you own:</p>
+
+	<% @user.projects.each do |project| %>
+	  
+	  <%= link_to project.name, project_path(project.id) %> | Total Pledges $<%= project.pledge_total %><br>
+
+	<% end %>
+
+	<hr/>
+
+	<p><%= link_to "Edit Profile", edit_user_path %></p>
+
+</div>

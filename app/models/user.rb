@@ -7,4 +7,5 @@ class User < ActiveRecord::Base
   def pledge_total
     self.pledges.sum(:amount)
   end
+
 end

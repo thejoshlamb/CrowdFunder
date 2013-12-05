@@ -9,7 +9,8 @@ class Project < ActiveRecord::Base
   end
 
   def pledge_percent
-    pledge_total * 100 / self.goal
+    percent = pledge_total * 100 / self.goal
+    percent = 100 if percent >= 100
   end
 
   mount_uploader :picture, PictureUploader

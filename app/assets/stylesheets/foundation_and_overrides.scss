@@ -51,7 +51,7 @@
 
 // We use these as default colors throughout
  $primary-color: #0079A1;
- $secondary-color: #76CC1E;
+ $secondary-color: #A2D64B;
 // $alert-color: #f04124;
 // $success-color: #43AC6A;
 
@@ -941,9 +941,9 @@
 	 $topbar-title-font-size: 1.8em;
 
 // Style the top bar dropdown elements
-  $topbar-dropdown-bg: #000000;
+  $topbar-dropdown-bg: #D6D6D6;
   $topbar-dropdown-link-color: #0C9ABE;
-  $topbar-dropdown-link-bg: #000000;
+  $topbar-dropdown-link-bg: #D6D6D6;
 // $topbar-dropdown-toggle-size: 5px;
 // $topbar-dropdown-toggle-color: #fff;
 // $topbar-dropdown-toggle-alpha: 0.4;
@@ -955,7 +955,7 @@
 // $topbar-link-weight: normal;
 // $topbar-link-font-size: rem-calc(13);
 // $topbar-link-hover-lightness: -10%; // Darken by 10%
-   $topbar-link-bg-hover: #FFFFFF;
+   $topbar-link-bg-hover: darken($topbar-bg-color, 5%);
 // $topbar-link-bg-active: $primary-color;
 // $topbar-link-bg-active-hover: darken($primary-color, 5%);
 // $topbar-link-font-family: $body-font-family;

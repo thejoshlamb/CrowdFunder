@@ -1,13 +1,28 @@
+<div class = "large-6 large-centered columns">
+
 <h1>Pledge to <%= @project.name %></h1>
 
 <%= form_for [@project, @pledge] do |f| %>
 
-  <div class="field">
-    <%= f.label "How much do you pledge?" %>
-    <%= f.number_field :amount, value: params[:amount] %>
+  <div class="panel" id="pledge-select">
+    <div class = "row collapse">
+    	<div class = "large-1 column">
+    		<h1>$</h1>
+    	</div>
+    	<div class = "large-9 columns">
+    		<%= f.number_field :amount, value: params[:amount], class: "5-large columns" %>
+    	</div>
+    	<div class = "large-2 column">
+    		<span class="postfix">.00</span>
+    	</div>
+  	</div>
   </div>
-  <div class="actions"><%= f.submit %></div>
-	
+
+  <div class="center">
+  	<%= submit_tag "Submit", :class => "button"  %>
+		<br/>
 <% end %>
 
-<%= link_to "Back", project_path(params[:project_id]) %>
+		<%= link_to "Back", project_path(params[:project_id]) %>
+	</div>
+</div>
