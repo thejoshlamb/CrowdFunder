@@ -1,32 +1,68 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>CrowdFunder</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <div id="debug">
-    debug</br>
-    id: <span> <%= params[:id] unless params[:id] == nil %></span></br>
-    current_user.id: <span><%= current_user.id if current_user %></span></br>
-    @project.id: <span><%= @project.id unless @project == nil %></span></br>
-    @pledge.id: <span><%= @pledge.id unless @pledge == nil %></span></br>
-    @project.pledges.all: <span><%= @project.pledges.all unless @project == nil%></span></br>
-  </div>
+    <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
 
-  <h1><%= link_to "CrowdBlunder", root_path %></h1> 
-  <div class = "user_panel">
-    <% if current_user %> 
-      <%= link_to current_user.username, user_path(current_user.id) %> | <%= link_to "Logout", logout_path %>
-    <% else %>
-      <%= link_to "Login", login_path %> | <%= link_to "Sign Up", signup_path %>
-    <% end %>
-  </div> 
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "vendor/modernizr" %>
+    <%= csrf_meta_tags %>
+  </head>
 
-<%= yield %>
+  <body>
 
-</body>
+    <div class="contain-to-grid">
+      <nav class="top-bar" data-topbar>
+        <ul class="title-area">
+          <li class="name">
+            <h1><a href="<%= root_path %>" id="title">Crowd<span>Thunder</span></a></h1>
+          </li>
+        </ul>
+
+        <% if current_user %>
+        
+        <!-- Right Nav Section for logged-in user -->
+
+        <section class="top-bar-section">
+          <!-- Right Nav Section -->
+          <ul class="right">
+            <li class="divider"></li>
+            <li> <a href="#">My Projects</a> </li>
+            <li class="divider"></li>
+            <li class="active"><a href="#"><%= current_user.username %></a></li>
+          </ul>
+
+        <% else %>
+        <section class="top-bar-section">
+          <!-- Right Nav Section for anonymous user -->
+          <ul class="right">
+            <li class="divider"></li>
+            <li> <a href="#">Log in</a> </li>
+            <li class="divider"></li>
+            <li class="active"><a href="#">Sign Up</a></li>
+          </ul>
+
+        <% end  %>
+
+          <!-- Left Nav Section -->
+          <ul class="left">
+            <li class="divider"></li>
+            <li><a href="#">Browse</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Start a Project</a></li>
+            <li class="divider"></li>
+          </ul>
+        </section>
+      </nav>
+    </div>
+
+    <div class = "row">
+    </br>
+    </br>
+      <%= yield %>
+      <%= javascript_include_tag "application" %>
+    </div>
+  </body>
 </html>

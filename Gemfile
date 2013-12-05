@@ -32,7 +32,14 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+
+#user authentication
 gem 'sorcery'
+
+
+# styling
+gem 'foundation-rails'
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
