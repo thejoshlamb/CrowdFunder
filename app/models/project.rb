@@ -4,6 +4,8 @@ class Project < ActiveRecord::Base
 	has_many :comments
 	has_many :tiers
 
+  mount_uploader :picture, PictureUploader
+
   def pledge_total
     self.pledges.sum(:amount)
   end
@@ -12,7 +14,5 @@ class Project < ActiveRecord::Base
     percent = pledge_total * 100 / self.goal
     percent = 100 if percent >= 100
   end
-
-  mount_uploader :picture, PictureUploader
 
 end
