@@ -5,6 +5,10 @@
   <p><%= @project.description %></p>
   <p>Project Pledge Progress: <%= @project.pledge_percent %>%</p>
   <p>Project Deadline: <%= @project.deadline %></p>
+
+  <div class="progress large-9 secondary round">
+  <span class="meter" style="width: <%= @project.pledge_percent %>%"></span>
+  </div>
   
 
   <br>
@@ -79,13 +83,13 @@
   </div>
 
   <div>
-    <a href="#" class="button radius" id = "donate-now">Back this Project</a>
+    <a href="<%= new_project_pledge_path(params[:id]) %>" class="button radius" id = "donate-now">Back this Project</a>
   </div>
 
  <!-- donation tiers section -->
 
   <% @project.tiers.sort{ |a,b| a.amount <=> b.amount }.each do |tier| %>
-    <div class = "panel">
+    <div class = "panel" id = "tier-box">
       <h3>$<%= tier.amount %></h3>
       <%= tier.name %><br>
       <%= tier.description %><br>
