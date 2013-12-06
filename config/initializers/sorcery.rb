@@ -70,7 +70,7 @@ Rails.application.config.sorcery.configure do |config|
   # What providers are supported by this app, i.e. [:twitter, :facebook, :github, :linkedin, :xing, :google, :liveid] .
   # Default: `[]`
   #
-  config.external_providers = [:facebook]
+  config.external_providers = [:facebook, :twitter]
 
 
   # You can change it by your local ca_file. i.e. '/etc/pki/tls/certs/ca-bundle.crt'
@@ -104,14 +104,14 @@ Rails.application.config.sorcery.configure do |config|
   # Twitter wil not accept any requests nor redirect uri containing localhost,
   # make sure you use 0.0.0.0:3000 to access your app in development
   #
-  # config.twitter.key = ""
-  # config.twitter.secret = ""
-  # config.twitter.callback_url = "http://0.0.0.0:3000/oauth/callback?provider=twitter"
-  # config.twitter.user_info_mapping = {:email => "screen_name"}
+  config.twitter.key = ENV['TWITTER_APP_ID']
+  config.twitter.secret = ENV['TWITTER_APP_SECRET']
+  config.twitter.callback_url = "http://localhost:3000/oauth/callback?provider=twitter"
+  config.twitter.user_info_mapping = {:username => "screen_name"}
   #
   config.facebook.key = ENV['FB_APP_ID']
   config.facebook.secret = ENV['FB_APP_SECRET']
-  config.facebook.callback_url = "#{ENV['FB_APP_URL']}/oauth/callback?provider=facebook"
+  # config.facebook.callback_url = "#{ENV['CALLBACK_URL']}/oauth/callback?provider=facebook"
   config.facebook.user_info_mapping = {:email => "email", :username => "username"}
   config.facebook.access_permissions = ["email", "read_stream"]
   config.facebook.display = "popup"
