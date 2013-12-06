@@ -17,7 +17,8 @@
       <nav class="top-bar" data-topbar>
         <ul class="title-area">
           <li class="name">
-            <h1><a href="<%= root_path %>" id="title">Bring<span class = "secondary">Back</span>The<span class = "secondary">Band</span></a></h1>
+            <h1 class="show-for-medium-up"><a href="<%= root_path %>" id="title">Bring<span class = "secondary">Back</span>The<span class = "secondary">Band</span></a></h1>
+            <h2 class="show-for-small-only"><a href="<%= root_path %>" id="title">Bring<span class = "secondary">Back</span>The<span class = "secondary">Band</span></a></h2>
           </li>
           <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
         </ul>
@@ -98,15 +99,19 @@
 
     <div class = "row">
       <%= yield %>
+      <br>
+      <br>
+      <hr>
+      <br/>
+      <h6 class = "center">&copy; 2013 Jason Offet and Josh Lamb</h6>
+      </br>
       <%= javascript_include_tag "application" %>
+      
 
-      <script src="js/foundation/foundation.js"></script>
+      <!-- <script src="js/foundation/foundation.js"></script> -->
       <script src="js/foundation/foundation.topbar.js"></script>
        <!-- Other JS plugins can be included here -->
 
-       <script>
-      $(document).foundation();
-      </script>
     </div>
   </body>
 </html>

@@ -1,7 +1,7 @@
 class ProjectsController < ApplicationController
 
   #will reject anonymous users from creating a new project with no explanation, should be elaborated
-  before_filter :require_login, :only => [:new, :create, :edit, :destroy] 
+  before_filter :require_login, :only => [:create, :edit, :destroy] 
 
   def index
     @projects = Project.all
@@ -18,6 +18,7 @@ class ProjectsController < ApplicationController
   end
 
   def new
+    redirect_to login_path unless current_user
     @project = Project.new
     @uploader = PictureUploader.new
   end
