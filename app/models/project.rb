@@ -6,6 +6,8 @@ class Project < ActiveRecord::Base
 
   mount_uploader :picture, PictureUploader
 
+  validates_presence_of :name, :description, :goal, :deadline
+
   def pledge_total
     self.pledges.sum(:amount)
   end

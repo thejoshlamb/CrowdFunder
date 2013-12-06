@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
 
-	# before_filter :require_login
-	# before_filter :load_project
+	 before_filter :require_login, :only => [:new, :create, :edit, :destroy]
+	 #before_filter :load_project
 
 	def index
 	  @comments = Comment.all
@@ -25,7 +25,7 @@ class CommentsController < ApplicationController
 	  		format.html {redirect_to project_path(@project.id), notice: "Comment saved."}
 	  		format.js {}
 	  	else
-	  		format.html {render :action => :show, alert: "Error"}
+	  		format.html {render :action => :show}
 	  		format.js {}
 	  	end
 	  end
@@ -49,8 +49,16 @@ class CommentsController < ApplicationController
 
 	def destroy
 	  @comment = Comment.find(params[:id])
-	  @comment.destroy
-	  redirect_back_or_to project_path(params[:project_id])
+	
+    respond_to do |format|
+	  	if @comment.destroy
+	  		format.html {redirect_back_or_to project_path(params[:project_id])}
+	  		format.js {}
+	  	else
+	  		format.html {redirect_to root_path}
+	  		format.js {}
+	  	end
+  	end
 	end
 
 	private

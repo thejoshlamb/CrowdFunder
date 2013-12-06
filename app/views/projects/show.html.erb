@@ -2,7 +2,7 @@
   <!-- project info section -->
 
   <h1><%= @project.name %></h1>
-  <img src="<%= @project.picture %>" height="100" width="100">
+  <img src="<%= @project.picture %>">
   <p><%= @project.description %></p>
   <p>Project Deadline: <%= @project.deadline.to_date.to_formatted_s(:long) %></p>
 
@@ -57,22 +57,10 @@
 
   <p>Comments:</p>
 
-  <div class="review-list">
+  <div id="comment-list">
     <% @project.comments.reverse.each do |comment| %>
-      <% if comment.id.present? %>
-
-    <div class="comment">
-      <p><%= comment.content %>
-
-      <% if comment.user === current_user %>
-        <em> | <%= link_to "Edit", edit_project_comment_path(@project.id,comment.id) %> | <%= link_to "Trash", project_comment_path(@project.id,comment.id), :method => :delete %></em><br>
-        <% end %>
-
-        <em> by <%= comment.user.username unless comment.user == nil %></em>
-        Added on: <%= comment.created_at %>
-    </p></div>
-      <% end %>
-  <% end %>
+      <%= render :partial => "/comments/comment_single", locals: { comment: comment } %>
+    <% end %>
   </div>
 </div>
 

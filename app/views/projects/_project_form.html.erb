@@ -30,16 +30,14 @@
     <%= f.label "What is the deadline for your project?" %>
     <%= f.date_field :deadline %>
   </div>
+  <div class = "center">
 
-  <div class="field">
+      <%= f.label "Upload an image file for your project (optional) " %>
+      <%= f.file_field :picture  %>
+      <%= f.hidden_field :picture_cache %>
 
-    <%= f.label "Upload an image file for your project. (optional)" %>
-    <%= f.file_field :picture  %>
-    <%= f.hidden_field :picture_cache %>
+    <div class="action">
+      <p><%= submit_tag "Proceed to Tiers", class: "button" %></p>
+    </div>
   </div>
-
-  <div class="action">
-    <p><%= f.submit "Proceed to Tiers" %></p>
-  </div>
-
 <% end %>

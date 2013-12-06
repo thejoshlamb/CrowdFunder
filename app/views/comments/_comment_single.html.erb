@@ -1,0 +1,15 @@
+<% if comment.id.present? %>
+  <div class="panel comment" data-commentid="<%= comment.id %>">
+    <p><%= comment.content %>
+      <% if comment.user === current_user %>
+        <br/>
+        <em><%= link_to "Edit", edit_project_comment_path(@project.id,comment.id) %> | <%= link_to "Trash", project_comment_path(@project.id,comment.id), :remote => true, :method => :delete %></em>
+        <br/>
+      <% end %>
+      <p> 
+        <em> by <%= comment.user.username unless comment.user == nil %></em>
+        </br>
+        on: <%= comment.created_at.to_date %>
+      </p>
+  </div>
+<% end %>
