@@ -1,5 +1,9 @@
 <h2> Log In </h2>
 
+<div class = "panel center">
+	<%= link_to 'Login with Facebook', auth_at_provider_path(:provider => :facebook) %>
+</div>
+
 <%= form_tag sessions_path do %>
 
 	<div class = "field">
