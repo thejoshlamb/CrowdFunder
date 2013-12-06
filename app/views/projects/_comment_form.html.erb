@@ -1,6 +1,12 @@
 <%= form_for [@project, @comment], :remote => true do |f| %>
 
-  <div class="field"><%= f.text_area :content %></div>
- 	<%= submit_tag "Post comment", class: "button" %>
 
+  <div class="row">
+  	<div class="large-9 columns">
+  		<%= f.text_area :content, :placeholder => "Thoughts?" %>
+  	</div>
+  	<div class="large-3 columns">
+ 			<%= submit_tag "Post comment", class: "button postfix" %>
+ 		</div>
+	</div>
 <% end %>

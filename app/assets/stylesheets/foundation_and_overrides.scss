@@ -944,8 +944,8 @@
   $topbar-dropdown-bg: #D6D6D6;
   $topbar-dropdown-link-color: #0C9ABE;
   $topbar-dropdown-link-bg: #D6D6D6;
-// $topbar-dropdown-toggle-size: 5px;
-// $topbar-dropdown-toggle-color: #fff;
+ $topbar-dropdown-toggle-size: 5px;
+ $topbar-dropdown-toggle-color: #fff;
 // $topbar-dropdown-toggle-alpha: 0.4;
 
 // Set the link colors and styles for top-level nav
@@ -972,10 +972,10 @@
 // $topbar-menu-link-transform: uppercase;
 // $topbar-menu-link-font-size: rem-calc(13);
 // $topbar-menu-link-weight: bold;
-// $topbar-menu-link-color: #fff;
-// $topbar-menu-icon-color: #fff;
-// $topbar-menu-link-color-toggled: #888;
-// $topbar-menu-icon-color-toggled: #888;
+ $topbar-menu-link-color: #000000;
+ $topbar-menu-icon-color: #000000;
+ $topbar-menu-link-color-toggled: #0C9ABE;
+ $topbar-menu-icon-color-toggled: #000000;
 
 // Transitions and breakpoint styles
 // $topbar-transition-speed: 300ms;

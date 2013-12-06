@@ -5,5 +5,3 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-
-projects = Project.create([{ name: 'Nsync Reunion Tour', description: 'The worlds greatest band back on the road', goal: 100000, deadline: "Feb 1, 2014"}])

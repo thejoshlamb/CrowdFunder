@@ -19,6 +19,7 @@
           <li class="name">
             <h1><a href="<%= root_path %>" id="title">Bring<span class = "secondary">Back</span>The<span class = "secondary">Band</span></a></h1>
           </li>
+          <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
         </ul>
 
         <% if current_user %>
@@ -67,7 +68,6 @@
     </div>
 
     </br>
-    </br>
 
     <% if flash[:alert] %>
       <div class = "row">
@@ -95,11 +95,18 @@
           
 
     </br>
-    </br>
 
     <div class = "row">
       <%= yield %>
       <%= javascript_include_tag "application" %>
+
+      <script src="js/foundation/foundation.js"></script>
+      <script src="js/foundation/foundation.topbar.js"></script>
+       <!-- Other JS plugins can be included here -->
+
+       <script>
+      $(document).foundation();
+      </script>
     </div>
   </body>
 </html>

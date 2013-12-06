@@ -12,7 +12,7 @@ class Project < ActiveRecord::Base
     self.pledges.sum(:amount)
   end
 
-  def pledge_percent(max)
+  def pledge_percent(max=9999999)
     pledge = pledge_total * 100 / self.goal
     if pledge >= max
       return max
