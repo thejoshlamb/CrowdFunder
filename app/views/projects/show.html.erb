@@ -1,27 +1,29 @@
 <!-- left hand column (9-wide) -->
 
-<div class = "large-9 columns">
+<div class = "large-9 medium-9 columns">
   <p><%= link_to "< Back", root_path %></p>
   <!-- project info section -->
 
   <h1><%= @project.name %></h1>
 
+  <!-- edit controls visible to admin only -->
    <% if @project.user === current_user %>
       <%= link_to "Edit this Project", edit_project_url %><br>
    <% end %>
+   <!--  -->
 
   <img src="<%= @project.picture %>">
   <p><%= @project.description %></p>
   <p>Project Deadline: <%= @project.deadline.to_date.to_formatted_s(:long) %></p>
 
   <div class="row">
-    <div class="large-9 columns">
+    <div class="large-9 medium-9 columns">
       <div class="progress large-12 secondary round">
         <span class="meter" style="width: <%= @project.pledge_percent(100) %>%"></span>
       </div>
     </div>
     <% if @project.pledge_percent(100) >= 100  %>
-      <div class="large-3 column">
+      <div class="large-3 medium-3 column">
         <h5 class="secondary"><%= @project.pledge_percent %>% funded!</h5>
       </div>
     <% end %>
@@ -29,7 +31,7 @@
 
   <br>
 
-  <!-- pledges so far, -->
+  <!-- pledges so far -->
 
     <h4>Backed by:</h4>
       <ul class="large-block-grid-6">
@@ -56,7 +58,7 @@
   <% if current_user %>
     <%= render "comment_form" %>
   <% else %>
-    <p>Please sign in to make a comment.</p>
+    <p>Have an opinion? <%= link_to "Sign Up", signup_path %> to make a comment!</p>
   <% end %>
 
   <div id="comment-list">
@@ -68,7 +70,7 @@
 
 <!-- right hand column (3-wide) -->
 
-<div class = "large-3 columns">
+<div class = "large-3 medium-3 columns">
  
  <!-- big numbers info box -->
   <div id = "project-info">
@@ -81,7 +83,11 @@
   </div>
 
   <div>
+    <% if current_user %>
     <a href="<%= new_project_pledge_path(params[:id]) %>" class="button radius" id = "donate-now">Back this Project</a>
+    <% else  %>
+    <a href="<%= signup_path %>" class="button radius">Sign up to Back this Project</a>
+    <% end  %>
   </div>
 
  <!-- donation tiers section -->

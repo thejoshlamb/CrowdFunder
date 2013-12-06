@@ -1,4 +1,4 @@
 <h3><%= link_to project.name, "/projects/#{project.id}" %><h3>
-<h6>from <%= User.find(project.user_id).username unless project.user_id == nil%></h6>
+
 <p><%= truncate(project.description, length:350, separator: ' ') {link_to "(Read More)", "/projects/#{project.id}" } %><p>
 <p><%= project.deadline.to_date.to_formatted_s(:long) unless project.deadline ==  nil%> | <%= number_to_currency(project.goal, precision:0) %></p> 

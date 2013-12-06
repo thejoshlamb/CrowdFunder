@@ -2,6 +2,10 @@
 
 	<h1>Signup</h1>
 
+	<div class = "panel center">
+	<%= link_to 'Login with Facebook', auth_at_provider_path(:provider => :facebook) %>
+	</div>
+
 	<%= render @user %>
 
 	<div class = "center">
