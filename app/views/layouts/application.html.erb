@@ -31,7 +31,7 @@
           <!-- Right Nav Section -->
           <ul class="right">
             <li class="divider"></li>
-            <li> <a href="">My Projects</a> </li>
+            <li> <a href="<%= user_path(current_user.id) %>">My Projects</a> </li>
             <li class="divider"></li>
             <li class="active has-dropdown">
               <a href="<%= user_path(current_user.id) %>"><%= current_user.username %></a>
